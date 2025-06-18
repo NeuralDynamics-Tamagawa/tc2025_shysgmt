@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "TC2025_BSI_TAMAGAWA_ShoyaSugimoto"
+version = "0.1.0"
+description = ""
+authors = ["Shoya Sugimoto <shoya.sugimoto.research@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13" 
+numpy = "2.1"
+pandas = "^2.2.3"
+seaborn = "^0.13.2"
+scipy = "^1.14.1"
+matplotlib = "^3.10.0"
+speedtest-cli = "^2.1.3"
+openpyxl = "^3.1.5"
+spikeinterface = {extras = ["full"], version = "^0.102.3"}
+ipykernel = "^6.29.5"
+torch = {version = "^2.5.1", source = "pytorch-cu121"}
+torchvision = {version = "^0.20.1", source = "pytorch-cu121"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+priority = "explicit"
+
