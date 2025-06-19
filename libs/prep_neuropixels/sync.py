@@ -147,7 +147,7 @@ def remove_noise(signal):
 
 
         
-def plot_sync_confirm(edge_idx_imec_filtered, edge_idx_procTeensy, figure_dir, n_imec):
+def plot_sync_confirm(edge_idx_imec_filtered, edge_idx_procTeensy, figure_dir=None, n_imec=None):
 
     reg = 6
     row = 2
@@ -195,8 +195,9 @@ def plot_sync_confirm(edge_idx_imec_filtered, edge_idx_procTeensy, figure_dir, n
 
 
     plt.suptitle("Confirmation synchronization", fontsize=14)
-    file_name = 'sync_confirmation_imec'+str(n_imec)+'.png'
-    plt.savefig(os.path.join(figure_dir, file_name))
+    if figure_dir is not None and file_name is not None:
+        file_name = 'sync_confirmation_imec'+str(n_imec)+'.png'
+        plt.savefig(os.path.join(figure_dir, file_name))
     #plt.show()
     #plt.close()
         

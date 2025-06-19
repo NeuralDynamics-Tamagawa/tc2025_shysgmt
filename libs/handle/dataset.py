@@ -102,7 +102,9 @@ class Session:
         return self
     
     def add_procTeensy_to_imec(self, i_imec):
-        self.procTeensy_to_imec = self.load_procTeensy_to_imec(i_imec=i_imec)
+        procTeensy_to_imec, path = self.load_procTeensy_to_imec(i_imec=i_imec)
+        self.procTeensy_to_imec = procTeensy_to_imec
+        self.procTeensy_to_imec_path = path
         return self
     
     
