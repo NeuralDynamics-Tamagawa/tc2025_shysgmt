@@ -7,7 +7,7 @@ import pickle
 import libs.utils.utils as utils
 import libs.handle.dataset as handle_dataset
 import spikeinterface.extractors as se
-import spikeinterface.full as si
+import spikeinterface as si
 import spikeinterface.postprocessing as spost
 import spikeinterface.widgets as sw
 import spikeinterface.qualitymetrics as sqm

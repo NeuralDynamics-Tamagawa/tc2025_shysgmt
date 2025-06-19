@@ -50,18 +50,16 @@ class Session:
         
     def load_sorting_analyzer(self, i_imec):
         imec_folder = 'imec'+str(i_imec)
-        base_dir = os.path.join(self.session_dir, 'spikeinterface', imec_folder)
-        path = os.path.join(base_dir, 'sorting_analyzer')
+        base_dir = os.path.join(self.session_dir, 'spikeinterface', imec_folder, 'sorting_analyzer')
         #sorting_analyzer = si.load_sorting_analyzer(path)
-        sorting_analyzer = si.load(path, load_extensions=False)
+        sorting_analyzer = si.load(base_dir, load_extensions=False)
         return sorting_analyzer, base_dir
     
     def load_analyzer_clean(self, i_imec):
         imec_folder = 'imec'+str(i_imec)
-        base_dir = os.path.join(self.session_dir, 'spikeinterface', imec_folder)
-        path = os.path.join(base_dir, 'analyzer_clean')
+        base_dir = os.path.join(self.session_dir, 'spikeinterface', imec_folder, 'analyzer_clean')
         #analyzer_clean = si.load_sorting_analyzer(path)
-        analyzer_clean = si.load(path, load_extensions=False)
+        analyzer_clean = si.load(base_dir, load_extensions=False)
         return analyzer_clean, base_dir
     
     
@@ -71,7 +69,7 @@ class Session:
         file_name = 'procTeensy_to_'+imec_folder+'.npy'
         path = os.path.join(processed_data, file_name)
         procTeensy_to_imec = np.load(path)
-        return procTeensy_to_imec
+        return procTeensy_to_imec, path
 
 
     # Load dataset and add to session
@@ -94,7 +92,7 @@ class Session:
     def add_sorting_analyzer(self, i_imec):
         sorting_analyzer, base_dir = self.load_sorting_analyzer(i_imec=i_imec)
         self.sorting_analyzer = sorting_analyzer
-        self.sorting_analyzer_base_dir = base_dir
+        self.sorting_analyzer_dir = base_dir
         return self
     
     def add_analyzer_clean(self, i_imec):
