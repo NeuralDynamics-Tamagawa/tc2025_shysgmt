@@ -77,11 +77,36 @@ def compute_peth_smooth(
     bin_size_sec=np.diff(bins).mean()
     sigma_bins=sigma_sec/bin_size_sec
 
-    spike_rate = gaussian_filter1d(spike_counts, sigma=sigma_bins, axis=1, mode='constant')/bin_size_sec
+    spike_rate = gaussian_filter1d(spike_counts, sigma=sigma_bins, axis=1, mode='constant')
 
-    peth = {'trial':trial, 'bins': bins, 'spike_rate': spike_rate}
+    peth = {'trial':trial, 'bins': bins, 'spike_counts': spike_rate}
     
     return peth
+
+
+def compute_peth_fr(
+    peth: dict,
+) -> dict:
+    """
+    Computes the firing rate from PETH data.
+    
+    Parameters:
+        peth (dict): Output from compute_peth_array() or compute_peth_smooth().
+    
+    Returns:
+        dict: PETH with firing rate in Hz.
+    """
+    trial = peth['trial']
+    bins = peth['bins']
+    spike_counts = peth['spike_counts'].astype(float)
+    
+    bin_size_sec=np.diff(bins).mean()
+    
+    spike_rate = spike_counts / bin_size_sec  # Convert counts to firing rate (Hz)
+
+    peth_fr = {'trial': trial, 'bins': bins, 'spike_rate': spike_rate}
+    
+    return peth_fr
     
     
 
