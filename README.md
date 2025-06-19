@@ -34,7 +34,9 @@ C:\Users\User1\Code\tc2025_shysgmt>
 ```
 C:\Users\User1\Code\tc2025_shysgmt> poetry config virtualenvs.in-project true --local
 ```
-pythonを指定して.venvを作成する（しているするpythonが入っているフォルダ）
+pythonを指定して.venvを作成する（pythonが入っているフォルダを指定）
+<br>例：C:\Users\User1\AppData\Local\Programs\Python\Python312\python.exe
+<br>（<u>User1のところは自分のパソコンに合わせる</u>）
 ```
 C:\Users\User1\Code\tc2025_shysgmt>poetry env use C:\Users\User1\AppData\Local\Programs\Python\Python312\python.exe
 ```
@@ -46,5 +48,5 @@ C:\Users\User1\Code\tc2025_shysgmt> poetry install
 ipykernelをインストールする
 
 ```
-C:\Users\User1\Code\tc2025_shysgmt> poetry run python -m ipykernel install --user --name illusion-of-control
+C:\Users\User1\Code\tc2025_shysgmt> poetry run python -m ipykernel install --user --name tc2025_shysgmt
 ```
