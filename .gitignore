@@ -1,5 +1,4 @@
 *.csv
-*.png
 *.jpg
 *.xlsx
 data/*
