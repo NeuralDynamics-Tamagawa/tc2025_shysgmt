@@ -11,10 +11,10 @@
 
 
 インストールしたPythonがどこにあるか確認（このパスをメモしておく）
+
+```
 C:\Users\User1> where python 
 C:\Users\User1\AppData\Local\Programs\Python\Python312\python.exe
-```
-where python 
 ```
 
 #### poetryをインストール
